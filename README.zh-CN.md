@@ -4,80 +4,107 @@
 
 ![BirdSafe](./assets/notion/logo.svg)
 
-一款本地优先的 Chrome 浏览器扩展，用于备份和管理你的 Twitter/X 书签与喜欢。
+**一款本地优先的 Chrome 浏览器扩展，用于备份和管理你的 Twitter/X 书签与喜欢。**
 
-BirdSafe 通过拦截 Twitter 原生 API 响应来捕获你收藏的内容，包括书签、喜欢、推文串和媒体，并全部存储在你可控的本地 IndexedDB 数据库中。除非你主动启用云端功能，否则数据不会离开你的浏览器。
+你在 Twitter/X 上的书签和喜欢随时可能消失，可能是因为博主删帖、账号被封或算法调整。BirdSafe 在你的浏览器中保留一份永久、可搜索的本地副本，完全由你掌控。除非你主动启用云端功能，否则数据不会离开你的浏览器。
 
-## 下载
+[官网](https://birdsafe.nan0.in) · [使用文档](https://birdsafe.nan0.in/docs) · [更新日志](https://birdsafe.nan0.in/changelog)
 
-- 最新版本：[GitHub Releases](https://github.com/duyananbryce/birdsafe-extension-releases/releases)
-- 当前安装包：[BirdSafe-extension-v2026.03.22.zip](https://github.com/duyananbryce/birdsafe-extension-releases/releases/download/v2026.03.22/BirdSafe-extension-v2026.03.22.zip)
-
-## 安装
-
-1. 从 [Releases](https://github.com/duyananbryce/birdsafe-extension-releases/releases) 下载最新 `BirdSafe-extension-*.zip`
-2. 解压到本地
-3. 打开 `chrome://extensions`
-4. 启用“开发者模式”
-5. 点击“加载已解压的扩展程序”
-6. 选择解压后的 `dist` 文件夹
+---
 
 ## 功能特性
 
-### 核心能力
+### 同步与备份
 
-- 本地优先存储，基于 IndexedDB / Dexie.js
-- 拦截 Twitter/X GraphQL 响应，捕获书签、喜欢、推文串与媒体
-- 智能增量同步与深度同步模式
-- 静默补全长推文、上下文、资料与缩略图
-- 频率感知请求队列，遇到 429 自动冷却
+- **一键同步**：点击一次，拉取全部书签和喜欢。智能增量同步，断点续传。
+- **深度同步**：常规同步遗漏较早内容时，可强制执行完整历史拉取。
+- **后台自动补全**：自动修补缺失的长推文全文、回复上下文、推文串、作者资料和视频封面。
+- **安全节流**：内置请求频控与自动冷却机制，保障账号安全。
 
 ### 浏览与整理
 
-- 瀑布流、表格、图库三种视图
-- 全文搜索、高级筛选、文件夹、星标、归档、批量操作
-- 随机模式重新发现旧收藏
-- 推文详情弹窗支持全文、媒体预览和手动刷新
+- **三种视图模式**：瀑布流、表格、图库，自适应列宽布局。
+- **全文搜索**：按推文内容和作者名称即时本地检索。
+- **高级筛选**：按媒体类型、时间范围、来源（书签 / 喜欢）过滤。
+- **文件夹、星标、归档**：自定义文件夹整理内容，星标重要内容，归档暂不需要的内容。
+- **批量操作**：多选后批量移动、归档或分配文件夹。
+- **随机模式**：重新发现被遗忘的收藏。
+- **推文详情弹窗**：全文查看、内嵌视频播放、图片灯箱、推文串可视化。
 
-![浏览](./assets/notion/browse.png)
+![瀑布流](./assets/notion/zh-waterfall.png)
+![表格视图](./assets/notion/zh-table.png)
+![画廊视图](./assets/notion/zh-gallery.png)
 
 ### 仪表盘
 
-- 总收藏、书签、喜欢、作者等统计卡片
-- 活跃热力图
-- 趋势图
-- 作者榜单与一键过滤
+- **统计卡片**：总收藏数、书签数、喜欢数、关联作者数一目了然。
+- **活跃热力图**：按年切换的贡献热力图。
+- **趋势图**：7 / 14 / 30 天新增趋势折线图。
+- **作者榜单**：排行榜，点击可直接按作者过滤内容。
 
-![仪表盘](./assets/notion/dashboard.png)
+![仪表盘](./assets/notion/zh-dashboard.png)
 
-### 账号监控
+### 云端功能（可选，需登录）
 
-- 采集任意 `@handle` 或公开主页时间线
-- 清理回复噪音
-- 按账号导出 JSON / CSV / Excel
+- **加密云备份**：手动或自动备份，支持按版本恢复。
+- **实时媒体镜像**：图片和视频异步上传至云端，即使原推被删除也能保留原始媒体。
+- **Notion 同步**：同步到 Notion 数据库，支持字段校验、断点续传、长内容自动拆分。
 
-### 云端功能
+![自动备份](./assets/notion/zh-auto-backup.png)
 
-需要登录后使用。
+---
 
-- 加密云端备份
-- 媒体镜像到 Cloudflare R2
-- Notion 同步，支持校验、续传、重试和长内容拆分
+## 快速上手
 
-![云备份](./assets/notion/cloud-backup.png)
-![Notion 同步](./assets/notion/notion-sync.png)
+1. 从 [Chrome Web Store](#)（即将上线）安装 BirdSafe。
+2. 确保在同一浏览器中已登录 [x.com](https://x.com)。
+3. 点击工具栏中的 BirdSafe 图标打开面板。
+4. 点击 **同步** 开始拉取你的书签和喜欢。
+
+就这么简单。数据存储在你的浏览器本地，核心功能无需注册账号。
+
+---
 
 ## 隐私与安全
 
-![隐私与安全](./assets/notion/privacy.png)
+![自定义设置](./assets/notion/zh-settings.png)
 
-- 本地优先设计，未启用云端功能时数据不会上传
-- `ct0` 与 `auth_token` 仅用于本地请求组装
-- 仅申请实际使用的最小权限
-- 云端备份启用时，上传前先加密
+- **本地优先设计。** 所有内容存储在浏览器中，除非你启用云端功能，否则不会上传任何数据。
+- **凭据不外传。** 认证 Cookie 仅用于在本地组装 API 请求，绝不会发送到任何第三方服务器。
+- **最小权限。** 扩展仅申请实际使用的权限，宿主权限仅限 `x.com` / `twitter.com`。
+- **云端加密。** 启用云备份时，数据在上传前会进行加密。
 
-## 说明
+详情请参阅 [隐私政策](https://birdsafe.nan0.in/privacy)、[服务条款](https://birdsafe.nan0.in/terms) 和 [安全审计](https://birdsafe.nan0.in/security-audit)。
 
-- 这是发布仓库，不是公开源码仓库
-- 仓库主要用于提供安装包和版本更新
-- 除非另行声明，否则保留所有权利
+---
+
+## 版本方案
+
+| | **免费版** | **Pro 版** |
+| --- | --- | --- |
+| 本地存档 | 最多 1,500 条 | 无限制 |
+| 搜索与筛选 | 基础 | 完整 |
+| 视图模式 | 瀑布流、表格、图库 | 瀑布流、表格、图库 |
+| 导出 | Markdown / JSON | Markdown / JSON |
+| 加密云备份 | - | 1 GB |
+| Notion 同步 | - | 包含 |
+| 本地媒体缓存 | - | 高清原图全量缓存 |
+
+[查看完整定价方案](https://birdsafe.nan0.in/#pricing)
+
+---
+
+## 相关链接
+
+- [官方网站](https://birdsafe.nan0.in)
+- [使用文档](https://birdsafe.nan0.in/docs)
+- [更新日志](https://birdsafe.nan0.in/changelog)
+- [隐私政策](https://birdsafe.nan0.in/privacy)
+- [服务条款](https://birdsafe.nan0.in/terms)
+- [安全审计](https://birdsafe.nan0.in/security-audit)
+
+---
+
+## 许可证
+
+BirdSafe 为专有软件，保留所有权利。使用条款详见 [服务条款](https://birdsafe.nan0.in/terms)。
