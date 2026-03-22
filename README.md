@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md)
 
-![BirdSafe](./assets/logo.svg)
+![BirdSafe](./assets/notion/logo.svg)
 
 A local-first Chrome extension for backing up and managing your Twitter/X bookmarks and likes.
 
@@ -43,7 +43,7 @@ BirdSafe intercepts Twitter's native API responses to capture your saved content
 - Random mode for resurfacing older saves
 - Tweet detail modal with full text, media preview, and manual refresh
 
-![Browse](./assets/view-waterfall.png)
+![Browse](./assets/notion/browse.png)
 
 ### Dashboard
 
@@ -52,7 +52,7 @@ BirdSafe intercepts Twitter's native API responses to capture your saved content
 - Trend chart for recent save activity
 - Top authors leaderboard with one-click filtering
 
-![Dashboard](./assets/feature-dashboard.png)
+![Dashboard](./assets/notion/dashboard.png)
 
 ### Account Monitor
 
@@ -68,10 +68,12 @@ Optional cloud features require login.
 - Real-time media mirroring to Cloudflare R2
 - Notion sync with validation, resume checkpoints, retries, and long-content splitting
 
-![Cloud Backup](./assets/auto-backup.png)
-![Sync](./assets/feature-sync.png)
+![Cloud Backup](./assets/notion/cloud-backup.png)
+![Notion Sync](./assets/notion/notion-sync.png)
 
 ## Privacy and Security
+
+![Privacy](./assets/notion/privacy.png)
 
 - Local-first by design: tweet content, media cache, and metadata stay in the browser unless cloud features are enabled
 - Credentials stay local: `ct0` and `auth_token` cookies are used only for local request assembly

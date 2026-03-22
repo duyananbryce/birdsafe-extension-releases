@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文 | [繁體中文](./README.zh-TW.md)
 
-![BirdSafe](./assets/logo.svg)
+![BirdSafe](./assets/notion/logo.svg)
 
 一款本地优先的 Chrome 浏览器扩展，用于备份和管理你的 Twitter/X 书签与喜欢。
 
@@ -39,7 +39,7 @@ BirdSafe 通过拦截 Twitter 原生 API 响应来捕获你收藏的内容，包
 - 随机模式重新发现旧收藏
 - 推文详情弹窗支持全文、媒体预览和手动刷新
 
-![浏览](./assets/view-waterfall.png)
+![浏览](./assets/notion/browse.png)
 
 ### 仪表盘
 
@@ -48,7 +48,7 @@ BirdSafe 通过拦截 Twitter 原生 API 响应来捕获你收藏的内容，包
 - 趋势图
 - 作者榜单与一键过滤
 
-![仪表盘](./assets/feature-dashboard.png)
+![仪表盘](./assets/notion/dashboard.png)
 
 ### 账号监控
 
@@ -64,10 +64,12 @@ BirdSafe 通过拦截 Twitter 原生 API 响应来捕获你收藏的内容，包
 - 媒体镜像到 Cloudflare R2
 - Notion 同步，支持校验、续传、重试和长内容拆分
 
-![云备份](./assets/auto-backup.png)
-![同步](./assets/feature-sync.png)
+![云备份](./assets/notion/cloud-backup.png)
+![Notion 同步](./assets/notion/notion-sync.png)
 
 ## 隐私与安全
+
+![隐私与安全](./assets/notion/privacy.png)
 
 - 本地优先设计，未启用云端功能时数据不会上传
 - `ct0` 与 `auth_token` 仅用于本地请求组装
