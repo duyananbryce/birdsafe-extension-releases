@@ -4,84 +4,106 @@ English | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md)
 
 ![BirdSafe](./assets/notion/logo.svg)
 
-A local-first Chrome extension for backing up and managing your Twitter/X bookmarks and likes.
+**A local-first Chrome extension for backing up and managing your Twitter/X bookmarks and likes.**
 
-BirdSafe intercepts Twitter's native API responses to capture your saved content, including bookmarks, likes, threads, and media, then stores everything in a local IndexedDB database that you control. No data leaves your browser unless you explicitly enable cloud features.
+Your bookmarks and likes on Twitter/X can vanish at any time: deleted tweets, suspended accounts, or algorithm changes. BirdSafe keeps a permanent, searchable local copy that you fully control. No data leaves your browser unless you choose to enable cloud features.
 
-## Download
+[Website](https://birdsafe.nan0.in) · [Documentation](https://birdsafe.nan0.in/docs) · [Changelog](https://birdsafe.nan0.in/changelog)
 
-- Latest release: [GitHub Releases](https://github.com/duyananbryce/birdsafe-extension-releases/releases)
-- Current package: [BirdSafe-extension-v2026.03.22.zip](https://github.com/duyananbryce/birdsafe-extension-releases/releases/download/v2026.03.22/BirdSafe-extension-v2026.03.22.zip)
-
-## Install
-
-1. Download the latest `BirdSafe-extension-*.zip` package from [Releases](https://github.com/duyananbryce/birdsafe-extension-releases/releases).
-2. Unzip it locally.
-3. Open `chrome://extensions` in a Chromium-based browser.
-4. Enable `Developer mode`.
-5. Click `Load unpacked`.
-6. Select the extracted `dist` folder.
+---
 
 ## Features
 
-### Core
+### Sync & Backup
 
-- Local-first storage with IndexedDB via Dexie.js
-- Network interception of Twitter/X GraphQL responses
-- Smart incremental sync to reduce duplicate fetches
-- Deep sync mode for historical backfill
-- Silent backfill for long text, thread context, profiles, and thumbnails
-- Rate-limit aware request queue with automatic cooldown on HTTP 429
+- **One-click sync**: Pull all your bookmarks and likes with a single click. Smart incremental sync picks up where you left off.
+- **Deep sync**: Force a full historical pull when standard sync misses older content.
+- **Background auto-complete**: Automatically patches missing full-text, reply context, thread chains, author profiles, and video thumbnails.
+- **Rate-limit safe**: Built-in request pacing with automatic cooldown, so your account stays safe.
 
-### Browse and Organize
+### Browse & Organize
 
-- Waterfall, table, and gallery view modes
-- Full-text local search across tweet text and author names
-- Advanced filters by media type, date range, and source
-- Folders, stars, and archive workflows
-- Batch operations for move, archive, and folder assignment
-- Random mode for resurfacing older saves
-- Tweet detail modal with full text, media preview, and manual refresh
+- **Three view modes**: Waterfall, table, and gallery with adaptive column layout.
+- **Full-text search**: Instant local keyword search across tweet text and author names.
+- **Advanced filters**: Filter by media type, date range, and source (`bookmark` / `like`).
+- **Folders, stars, archive**: Organize content into custom folders, star important items, or archive what you do not need right now.
+- **Batch operations**: Multi-select for bulk move, archive, or folder assignment.
+- **Random mode**: Resurface forgotten saves with a stable-seed shuffle.
+- **Tweet detail view**: Full-text view, inline video playback, image lightbox, and thread chain visualization.
 
 ![Browse](./assets/notion/browse.png)
 
 ### Dashboard
 
-- Stats cards for total saves, bookmarks, likes, and linked authors
-- Activity heatmap
-- Trend chart for recent save activity
-- Top authors leaderboard with one-click filtering
+- **Stats cards**: Total saves, bookmarks, likes, and linked authors at a glance.
+- **Activity heatmap**: Year-by-year contribution-style heatmap.
+- **Trend chart**: `7 / 14 / 30-day` new-content trend line.
+- **Top authors**: Leaderboard with one-click filter to their content.
 
 ![Dashboard](./assets/notion/dashboard.png)
 
-### Account Monitor
+### Cloud Features (Optional, requires login)
 
-- Public timeline capture for any `@handle` or profile URL
-- Noise cleaning for reply-thread-heavy timelines
-- Per-account export to JSON, CSV, and Excel
-
-### Cloud Features
-
-Optional cloud features require login.
-
-- Encrypted cloud backup with restore points
-- Real-time media mirroring to Cloudflare R2
-- Notion sync with validation, resume checkpoints, retries, and long-content splitting
+- **Encrypted cloud backup**: Manual or automatic backup with version history for point-in-time restore.
+- **Real-time media mirroring**: Cached images and videos are uploaded to the cloud, so originals survive even if deleted on Twitter.
+- **Notion sync**: Sync your archive to a Notion database with field validation, checkpoint resume, and automatic content splitting.
 
 ![Cloud Backup](./assets/notion/cloud-backup.png)
 ![Notion Sync](./assets/notion/notion-sync.png)
 
-## Privacy and Security
+---
+
+## Getting Started
+
+1. Install BirdSafe from the [Chrome Web Store](#) (coming soon).
+2. Make sure you are logged into [x.com](https://x.com) in the same browser.
+3. Click the BirdSafe icon in the toolbar to open the panel.
+4. Hit **Sync** to start pulling your bookmarks and likes.
+
+That's it. Your data is now stored locally in your browser with no account required for core features.
+
+---
+
+## Privacy & Security
 
 ![Privacy](./assets/notion/privacy.png)
 
-- Local-first by design: tweet content, media cache, and metadata stay in the browser unless cloud features are enabled
-- Credentials stay local: `ct0` and `auth_token` cookies are used only for local request assembly
-- Minimal permissions: the extension only requests permissions it actively uses
-- Cloud encryption: cloud backup data is encrypted before upload
+- **Local-first by design.** All content is stored in your browser. Nothing is uploaded unless you enable cloud features.
+- **Your credentials stay local.** Authentication cookies are used exclusively for assembling local API requests. They are never sent to any third-party server.
+- **Minimal permissions.** The extension only requests the permissions it actively uses. No broad host access beyond `x.com` / `twitter.com`.
+- **Cloud encryption.** When cloud backup is enabled, data is encrypted before upload.
 
-## Notes
+For more details, see our [Privacy Policy](https://birdsafe.nan0.in/privacy), [Terms of Service](https://birdsafe.nan0.in/terms), and [Security Audit](https://birdsafe.nan0.in/security-audit).
 
-- This is a release distribution repository, not a public source repository.
-- Release assets are provided for installation and update delivery.
-- All rights reserved unless explicitly stated otherwise.
+---
+
+## Plans
+
+| | **Free** | **Pro** |
+| --- | --- | --- |
+| Local archive | Up to 1,500 tweets | Unlimited |
+| Search & filter | Basic | Full |
+| View modes | Waterfall, table, gallery | Waterfall, table, gallery |
+| Export | Markdown / JSON | Markdown / JSON |
+| Encrypted cloud backup | - | 1 GB |
+| Notion sync | - | Included |
+| Local media cache | - | Full HD originals |
+
+[View full pricing details](https://birdsafe.nan0.in/#pricing)
+
+---
+
+## Links
+
+- [Official Website](https://birdsafe.nan0.in)
+- [Documentation](https://birdsafe.nan0.in/docs)
+- [Changelog](https://birdsafe.nan0.in/changelog)
+- [Privacy Policy](https://birdsafe.nan0.in/privacy)
+- [Terms of Service](https://birdsafe.nan0.in/terms)
+- [Security Audit](https://birdsafe.nan0.in/security-audit)
+
+---
+
+## License
+
+BirdSafe is proprietary software. All rights reserved. See [Terms of Service](https://birdsafe.nan0.in/terms) for usage terms.
